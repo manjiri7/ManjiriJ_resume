@@ -88,37 +88,6 @@
     .whatsapp { background: #25D366; }
     .twitter { background: #1DA1F2; }
     .linkedin { background: #0a66c2; }
-
-    /* Certificates Section */
-    #certificates {
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 20px;
-      background: white;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    #certificates h2 {
-      text-align: center;
-      color: #004d40;
-    }
-    #certificates input[type="file"] {
-      display: block;
-      margin: 10px auto;
-    }
-    #certificate-preview {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 20px;
-    }
-    #certificate-preview img {
-      width: 250px;
-      height: auto;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
   </style>
 </head>
 <body>
@@ -166,8 +135,7 @@
     <h3>Career Objective</h3>
     <p>Driven by a curious mind and a relentless passion for creation, I aim to navigate the intersection of electronics,
       intelligent systems, and artistic expression. With a foundation in Electronics and Telecommunication Engineering,
-      complemented by a minor in Artificial Intelligence and Data Science, my ambition is to design, build, and narrate—
-      from intricate PCBs to compelling written pieces. I aspire to contribute to environments where innovation is nurtured,
+      complemented by a minor in Artificial Intelligence and Data Science, my ambition is to design, build, and narrate— from intricate PCBs to compelling written pieces. I aspire to contribute to environments where innovation is nurtured,
       interdisciplinary thinking is celebrated, and every idea—whether engineered or penned—holds the power to spark change.
     </p>
 
@@ -196,14 +164,7 @@
   </div>
 </div>
 
-<!-- Certificates Upload Section -->
-<div id="certificates">
-  <h2>My Certificates</h2>
-  <input type="file" id="certificateUpload" accept="image/*" multiple>
-  <div id="certificate-preview"></div>
-</div>
-
-<!-- JavaScript for sharing, downloading, and previewing uploads -->
+<!-- JavaScript for sharing and downloading -->
 <script>
   const resumeURL = window.location.href;
 
@@ -222,23 +183,6 @@
   function downloadResume() {
     window.print();
   }
-
-  // Certificate preview handler
-  const certificateUpload = document.getElementById('certificateUpload');
-  const previewContainer = document.getElementById('certificate-preview');
-
-  certificateUpload.addEventListener('change', function () {
-    previewContainer.innerHTML = ""; // Clear previous previews
-    for (let file of this.files) {
-      const reader = new FileReader();
-      reader.onload = function (e) {
-        const img = document.createElement('img');
-        img.src = e.target.result;
-        previewContainer.appendChild(img);
-      };
-      reader.readAsDataURL(file);
-    }
-  });
 </script>
 
 </body>
